@@ -17,6 +17,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "dependencies": {
+    "serve": "^14.2.3"
+  },
   "engines": {
     "node": ">=22.6.0 <23.0.0",
     "npm": ">=10.8.2 <11.0.0"
