@@ -14,6 +14,9 @@
     "type": "git",
     "url": "git+https://github.com/Stassi/leaflet-quickstart.git"
   },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "engines": {
     "node": ">=22.6.0 <23.0.0",
     "npm": ">=10.8.2 <11.0.0"
@@ -24,8 +27,5 @@
   "cpu": [
     "x64"
   ],
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "private": true
 }
