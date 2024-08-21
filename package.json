@@ -15,6 +15,7 @@
     "url": "git+https://github.com/Stassi/leaflet-quickstart.git"
   },
   "scripts": {
+    "prestart": "cpx \"node_modules/leaflet/dist/**/*\" public/leaflet",
     "start": "serve public"
   },
   "dependencies": {
