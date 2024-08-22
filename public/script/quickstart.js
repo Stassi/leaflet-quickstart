@@ -69,7 +69,9 @@
   addMarker({
     latitudeLongitude: [51.5, -0.09],
     map
-  });
+  }).bindPopup(
+    "<b>Hello world!</b><br>I am a popup."
+  ).openPopup();
 
   addCircle({
     color: 'red',
@@ -78,7 +80,7 @@
     latitudeLongitude: [51.508, -0.11],
     map,
     radius: 500
-  });
+  }).bindPopup("I am a circle.");
 
   addPolygon({
     latitudeLongitudes: [
@@ -87,5 +89,5 @@
       [51.51, -0.047]
     ],
     map
-  })
+  }).bindPopup("I am a polygon.");
 })(window.leaflet)
