@@ -1,4 +1,8 @@
-(({ circle: createLeafletCircle, map: createLeafletMap, tileLayer }) => {
+(({
+  circle,
+  map: createLeafletMap,
+  tileLayer
+}) => {
   function createMap({
     center,
     id,
@@ -10,7 +14,7 @@
     });
   }
 
-  function createTileLayer({
+  function addTileLayer({
     attribution,
     map,
     urlTemplate,
@@ -22,10 +26,10 @@
     }).addTo(map);
   }
 
-  function createCircle({
+  function addCircle({
     latitudeLongitude
   }) {
-    return createLeafletCircle(latitudeLongitude, {
+    return circle(latitudeLongitude, {
       color: 'red',
       fillColor: '#f03',
       fillOpacity: 0.5,
@@ -39,14 +43,14 @@
     zoom: 13
   });
 
-  createTileLayer({
+  addTileLayer({
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>',
     map,
     urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
     zoomMax: 19,
   });
 
-  createCircle({
+  addCircle({
     color: 'red',
     fillColor: '#f03',
     fillOpacity: 0.5,
