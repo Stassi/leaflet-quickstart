@@ -7,28 +7,37 @@
   tileLayer
 }) => {
   function addCircle({
-    latitudeLongitude
+    latitudeLongitude,
+    map,
+    popupContent
   }) {
     return circle(latitudeLongitude, {
       color: 'red',
       fillColor: '#f03',
       fillOpacity: 0.5,
       radius: 500
-    }).addTo(map);
+    }).addTo(map)
+      .bindPopup(popupContent);
   }
 
   function addMarker({
     latitudeLongitude,
-    map
+    map,
+    popupContent
   }) {
-    return marker(latitudeLongitude).addTo(map);
+    return marker(latitudeLongitude)
+      .addTo(map)
+      .bindPopup(popupContent);
   }
 
   function addPolygon({
     latitudeLongitudes,
-    map
+    map,
+    popupContent
   }) {
-    return polygon(latitudeLongitudes).addTo(map);
+    return polygon(latitudeLongitudes)
+      .addTo(map)
+      .bindPopup(popupContent);
   }
 
   function addPopup({
@@ -80,8 +89,9 @@
 
   addMarker({
     latitudeLongitude: [51.5, -0.09],
-    map
-  }).bindPopup("<b>Hello world!</b><br>I am a popup.");
+    map,
+    popupContent: '<b>Hello world!</b><br>I am a popup.'
+  });
 
   addCircle({
     color: 'red',
@@ -89,8 +99,9 @@
     fillOpacity: 0.5,
     latitudeLongitude: [51.508, -0.11],
     map,
+    popupContent: 'I am a circle.',
     radius: 500
-  }).bindPopup("I am a circle.");
+  });
 
   addPolygon({
     latitudeLongitudes: [
@@ -98,8 +109,9 @@
       [51.503, -0.06],
       [51.51, -0.047]
     ],
-    map
-  }).bindPopup("I am a polygon.");
+    map,
+    popupContent: "I am a polygon."
+  });
 
   addPopup({
     htmlContent: "I am a standalone popup.",
