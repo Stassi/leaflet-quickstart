@@ -1,6 +1,7 @@
 (({
   circle,
   map: createLeafletMap,
+  marker,
   tileLayer
 }) => {
   function addCircle({
@@ -12,6 +13,13 @@
       fillOpacity: 0.5,
       radius: 500
     }).addTo(map);
+  }
+
+  function addMarker({
+    latitudeLongitude,
+    map
+  }) {
+    return marker(latitudeLongitude).addTo(map);
   }
 
   function addTileLayer({
@@ -48,6 +56,11 @@
     map,
     urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
     zoomMax: 19,
+  });
+
+  addMarker({
+    latitudeLongitude: [51.5, -0.09],
+    map
   });
 
   addCircle({
