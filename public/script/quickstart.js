@@ -82,6 +82,8 @@
     center: [51.505, -0.09],
     id: 'map',
     zoom: 13
+  }).on('click', ({ latlng: latitudeLongitude }) => {
+    alert(`You clicked the map at ${latitudeLongitude}`);
   });
 
   addTileLayer({
