@@ -81,9 +81,7 @@
   addMarker({
     latitudeLongitude: [51.5, -0.09],
     map
-  }).bindPopup(
-    "<b>Hello world!</b><br>I am a popup."
-  ).openPopup();
+  }).bindPopup("<b>Hello world!</b><br>I am a popup.");
 
   addCircle({
     color: 'red',
