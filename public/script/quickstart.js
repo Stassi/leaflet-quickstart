@@ -1,31 +1,37 @@
-(({ map: createMap, tileLayer }) => {
-  function setupTileLayer({
-    attribution,
+(({ map: createLeafletMap, tileLayer }) => {
+  function createMap({
     center,
     id,
-    urlTemplate,
-    zoom,
-    zoomMax: maxZoom
+    zoom
   }) {
-    const createdMap = createMap(id, {
+    return createLeafletMap(id, {
       center,
       zoom
     });
-
-    tileLayer(urlTemplate, {
-      attribution,
-      maxZoom
-    }).addTo(createdMap)
-
-    return createdMap
   }
 
-  setupTileLayer({
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>',
+  function createTileLayer({
+    attribution,
+    map,
+    urlTemplate,
+    zoomMax: maxZoom,
+  }) {
+    return tileLayer(urlTemplate, {
+      attribution,
+      maxZoom
+    }).addTo(map)
+  }
+
+  const map = createMap({
     center: [51.505, -0.09],
     id: 'map',
+    zoom: 13
+  });
+
+  createTileLayer({
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>',
+    map,
     urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-    zoom: 13,
-    zoomMax: 19
+    zoomMax: 19,
   })
 })(window.leaflet)
