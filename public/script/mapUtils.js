@@ -1,11 +1,11 @@
-const {
+import {
   circle,
   map,
   marker,
   polygon,
   popup,
   tileLayer
-} = window.leaflet;
+} from '../leaflet/leaflet-src.esm.js'
 
 export function addCircle({
   color,
