@@ -70,24 +70,29 @@
   function createMap({
     center,
     id,
+    onClick,
     zoom
   }) {
     return createLeafletMap(id, {
       center,
       zoom
-    });
+    }).on(
+      'click',
+      onClick
+    );
   }
 
   const map = createMap({
     center: [51.505, -0.09],
     id: 'map',
+    onClick: ({ latlng: latitudeLongitude }) => {
+      addPopup({
+        htmlContent: `You clicked the map at ${latitudeLongitude}`,
+        latitudeLongitude,
+        map
+      });
+    },
     zoom: 13
-  }).on('click', ({ latlng: latitudeLongitude }) => {
-    addPopup({
-      htmlContent: `You clicked the map at ${latitudeLongitude}`,
-      latitudeLongitude,
-      map
-    });
   });
 
   addTileLayer({
