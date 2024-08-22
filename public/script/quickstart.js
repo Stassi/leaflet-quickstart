@@ -2,6 +2,7 @@
   circle,
   map: createLeafletMap,
   marker,
+  polygon,
   tileLayer
 }) => {
   function addCircle({
@@ -20,6 +21,13 @@
     map
   }) {
     return marker(latitudeLongitude).addTo(map);
+  }
+
+  function addPolygon({
+    latitudeLongitudes,
+    map
+  }) {
+    return polygon(latitudeLongitudes).addTo(map);
   }
 
   function addTileLayer({
@@ -71,4 +79,13 @@
     map,
     radius: 500
   });
+
+  addPolygon({
+    latitudeLongitudes: [
+      [51.509, -0.08],
+      [51.503, -0.06],
+      [51.51, -0.047]
+    ],
+    map
+  })
 })(window.leaflet)
