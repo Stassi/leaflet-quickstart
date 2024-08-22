@@ -3,6 +3,7 @@
   map: createLeafletMap,
   marker,
   polygon,
+  popup,
   tileLayer
 }) => {
   function addCircle({
@@ -28,6 +29,17 @@
     map
   }) {
     return polygon(latitudeLongitudes).addTo(map);
+  }
+
+  function addPopup({
+    htmlContent,
+    latitudeLongitude,
+    map
+  }) {
+    return popup()
+      .setLatLng(latitudeLongitude)
+      .setContent(htmlContent)
+      .openOn(map);
   }
 
   function addTileLayer({
@@ -90,4 +102,10 @@
     ],
     map
   }).bindPopup("I am a polygon.");
+
+  addPopup({
+    htmlContent: "I am a standalone popup.",
+    latitudeLongitude: [51.513, -0.09],
+    map
+  });
 })(window.leaflet)
