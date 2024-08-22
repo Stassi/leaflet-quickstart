@@ -120,11 +120,11 @@
       [51.51, -0.047]
     ],
     map,
-    popupContent: "I am a polygon."
+    popupContent: 'I am a polygon.'
   });
 
   addPopup({
-    htmlContent: "I am a standalone popup.",
+    htmlContent: 'I am a standalone popup.',
     latitudeLongitude: [51.513, -0.09],
     map
   });
