@@ -83,7 +83,11 @@
     id: 'map',
     zoom: 13
   }).on('click', ({ latlng: latitudeLongitude }) => {
-    alert(`You clicked the map at ${latitudeLongitude}`);
+    addPopup({
+      htmlContent: `You clicked the map at ${latitudeLongitude}`,
+      latitudeLongitude,
+      map
+    });
   });
 
   addTileLayer({
