@@ -19,7 +19,7 @@
     "start": "serve public"
   },
   "dependencies": {
-    "cpx": "^1.5.0",
+    "cpx2": "^7.0.1",
     "leaflet": "^1.9.4",
     "serve": "^14.2.3"
   },
