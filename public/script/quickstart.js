@@ -3,15 +3,15 @@
   map: createLeafletMap,
   tileLayer
 }) => {
-  function createMap({
-    center,
-    id,
-    zoom
+  function addCircle({
+    latitudeLongitude
   }) {
-    return createLeafletMap(id, {
-      center,
-      zoom
-    });
+    return circle(latitudeLongitude, {
+      color: 'red',
+      fillColor: '#f03',
+      fillOpacity: 0.5,
+      radius: 500
+    }).addTo(map);
   }
 
   function addTileLayer({
@@ -26,15 +26,15 @@
     }).addTo(map);
   }
 
-  function addCircle({
-    latitudeLongitude
+  function createMap({
+    center,
+    id,
+    zoom
   }) {
-    return circle(latitudeLongitude, {
-      color: 'red',
-      fillColor: '#f03',
-      fillOpacity: 0.5,
-      radius: 500
-    }).addTo(map);
+    return createLeafletMap(id, {
+      center,
+      zoom
+    });
   }
 
   const map = createMap({
