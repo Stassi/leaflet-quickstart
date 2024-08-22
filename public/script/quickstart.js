@@ -7,15 +7,19 @@
   tileLayer
 }) => {
   function addCircle({
+    color,
+    fillColor,
+    fillOpacity,
     latitudeLongitude,
     map,
-    popupContent
+    popupContent,
+    radius
   }) {
     return circle(latitudeLongitude, {
-      color: 'red',
-      fillColor: '#f03',
-      fillOpacity: 0.5,
-      radius: 500
+      color,
+      fillColor,
+      fillOpacity,
+      radius
     }).addTo(map)
       .bindPopup(popupContent);
   }
