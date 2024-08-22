@@ -5,7 +5,7 @@
     id,
     urlTemplate,
     zoom,
-    zoomMax
+    zoomMax: maxZoom
   }) {
     const createdMap = createMap(id, {
       center,
@@ -14,7 +14,7 @@
 
     tileLayer(urlTemplate, {
       attribution,
-      maxZoom: zoomMax
+      maxZoom
     }).addTo(createdMap)
 
     return createdMap
